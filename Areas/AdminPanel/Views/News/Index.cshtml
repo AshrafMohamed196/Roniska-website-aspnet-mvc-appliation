@@ -1,0 +1,54 @@
+﻿@model IEnumerable<news_site.Models.News>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <center style="margin:15px 0">
+        <a asp-action="Create" class="btn btn-success">Create New</a>
+    </center>
+
+    <table class="table table-borderless table-striped table-earning">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Title)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Topic)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.category)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    <td>
+                        <img src="~/Images/News/@item.Image" width="120" height="120" style="border-radius:15px" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.category.Name)
+                    </td>
+                    <td width="25%">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+

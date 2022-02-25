@@ -1,0 +1,53 @@
+﻿@model IEnumerable<news_site.Models.TeamMember>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+
+<div class="container">
+    <center style="padding:10px 0">
+        <a asp-action="Create" class="btn btn-success">Add New TeamMember</a>
+
+    </center>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Job)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Image)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Job)
+                    </td>
+                    <td>
+                        <img src="~/Images/Team-Members/@item.Image" width="150" height="150" style="border-radius:10px"/>
+                    </td>
+                    <td style="width:30%">
+                        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

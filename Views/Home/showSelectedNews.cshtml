@@ -1,0 +1,38 @@
+﻿@model List<News>
+
+@{
+    ViewData["Title"] = "showSelectedNews";
+}
+<section id="departments" class="departments">
+    <div class="container aos-init aos-animate" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>اخبار @ViewBag.catName</h2>
+            <p>Roniska parents representing various geographic areas, income levels, and racial and ethnic backgrounds reported changing jobs, turning down jobs, decreasing their hours, forgoing promotions or leaving the workforce entirely as a result of inconsistent or unaffordable care.</p>
+        </div>
+
+        @foreach (var item in Model)
+        {
+
+            <div class="row aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                <center>
+                    <div class="col-lg-8">
+                        <div class="tab-content">
+                            <div class="tab-pane active show" id="tab-1">
+                                <p class="fst-italic">
+                                    <img src="~/Images/News/@item.Image" alt="" class="img-fluid" tabindex="" style="border-radius:50%">
+                                <p>@item.Topic</p>
+                                <a class="btn btn-danger" href="/Home/deleteNews/@item.Id">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </center>
+
+            </div>
+
+            <hr />
+         
+        }
+
+    </div>
+</section>

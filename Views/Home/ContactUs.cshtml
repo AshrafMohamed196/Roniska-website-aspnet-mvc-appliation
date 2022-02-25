@@ -1,0 +1,79 @@
+﻿@model ContactUs
+
+
+@{
+    ViewData["Title"] = "ContactUs";
+}
+
+<section id="contact" class="contact">
+    <div class="container">
+        s
+        <h2>Contact</h2>
+        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen=""></iframe>
+    </div>
+    <div class="row mt-5">
+
+        <div class="col-lg-6">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="info-box">
+                        <i class="bx bx-map"></i>
+                        <h3>Our Address</h3>
+                        <p>Mansoura<p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="info-box mt-4">
+                        <i class="bx bx-envelope"></i>
+                        <h3>Email Us</h3>
+                        <p>
+                            <a href="mailto:Osham780@gmail.com">osham780@gmail.com</a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="info-box mt-4">
+                        <i class="bx bx-phone-call"></i>
+                        <h3>Call Us</h3>
+                        <p>01151915161</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-lg-6">
+            <form asp-action="postContactUs" method="post" role="form">
+                <div class="row">
+                    <div class="col form-group">
+                        <input type="text" asp-for="Name" name="name" class="form-control" id="name" placeholder="Your Name" required="">
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="col form-group">
+                        <input type="email" asp-for="Email" class="form-control" name="email" id="email" placeholder="Your Email" required="">
+                        <span asp-validation-for="Email" class="text-danger"></span>
+
+                    </div>
+                </div>
+                <div class="form-group mt-3">
+                    <input type="text" asp-for="Subject" class="form-control" name="subject" id="subject" placeholder="Subject" required="">
+                    <span asp-validation-for="Subject" class="text-danger"></span>
+
+                </div>
+                <div class="form-group mt-3">
+                    <textarea class="form-control" asp-for="Message" name="message" rows="5" placeholder="Message" required=""></textarea>
+                    <span asp-validation-for="Message" class="text-danger"></span>
+
+                </div>
+                <div class="my-3">
+                    <div class="loading">Loading</div>
+                    <div class="error-message"></div>
+                    <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+                <div class="text-center"><button type="submit" class="bg-success">Send Message</button></div>
+            </form>
+        </div>
+    </div>
+</section>

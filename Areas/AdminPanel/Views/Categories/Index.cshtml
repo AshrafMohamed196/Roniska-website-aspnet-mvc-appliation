@@ -1,0 +1,42 @@
+﻿@using news_site.Areas.AdminPanel.Controllers
+@model IEnumerable<news_site.Models.Category>
+
+
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container">
+    <center>
+        <a asp-action="Create" class="btn btn-success" style="margin:5px">Create New</a>
+    </center>
+    <table class="table table-borderless table-striped table-earning">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    Control
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-Id="@item.Id" class="btn btn-primary">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
